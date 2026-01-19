@@ -6,7 +6,6 @@ import crypto from "crypto";
 const register = async (req, res) => {
   const { name, email, password, username } = req.body;
   try {
-    // if email is present then find by email also use username
     const existingUser = await User.findOne({
       $or: [{ email: email }, { username: username }],
     });
@@ -24,6 +23,7 @@ const register = async (req, res) => {
       password: hashedPassword,
       username,
     });
+
     res.status(httpStatus.CREATED).json({
       message: "User created successfully",
       user,
@@ -35,6 +35,7 @@ const register = async (req, res) => {
       .json({ message: error.message });
   }
 };
+
 
 const login = async (req, res) => {
   const { email, password, username } = req.body;
@@ -51,7 +52,11 @@ const login = async (req, res) => {
         let token = crypto.randomBytes(32).toString("hex");
         user.token = token;
         await user.save();
-        res.status(httpStatus.OK).json({message:"User logged in successfully",user});
+        res.status(httpStatus.OK).json({message:"User logged in successfully", loggedInUser:{
+            name:user.name,
+            email:user.email,
+            username:user.username
+        }});
     }
   } catch (error) {
     console.log(error);
