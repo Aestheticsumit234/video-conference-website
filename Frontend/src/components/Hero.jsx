@@ -61,7 +61,7 @@ const Hero = () => {
             collaboration.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Link to={"/Home"} className="px-10 py-4 rounded-full border border-black text-xl font-medium hover:bg-black hover:text-white transition-all w-full sm:w-auto">
+            <Link to={"/register"} className="px-10 py-4 rounded-full border border-black text-xl font-medium hover:bg-black hover:text-white transition-all w-full sm:w-auto">
               Get Started
             </Link>
             <button className="px-10 py-4 rounded-full border border-gray-400 text-xl font-medium hover:bg-black hover:text-white transition-all w-full sm:w-auto">

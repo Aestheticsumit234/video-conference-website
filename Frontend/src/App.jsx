@@ -1,18 +1,36 @@
-import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Landing from './pages/Landing'
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Landing from "./pages/Landing";
+import Home from "./pages/Home";
+import Authentication from "./pages/authentication";
+import Register from "./components/Register";
+import { AuthProvider } from "./context/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
+import MainLayout from "./components/MainLayout";
 
 const App = () => {
   return (
-    <>
     <BrowserRouter>
-      <Routes>
-        {/* <Route path='/home' element={<Home />} /> */}
-        <Route path='/' element={<Landing />} />
-      </Routes>
-    </BrowserRouter>
-    </>
-  )
-}
+      <AuthProvider>
+        <Routes>
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<Landing />} />
+            <Route
+              path="/home"
+              element={
+                <ProtectedRoute>
+                  <Home />
+                </ProtectedRoute>
+              }
+            />
+          </Route>
 
-export default App
+          <Route path="/auth" element={<Authentication />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </AuthProvider>
+    </BrowserRouter>
+  );
+};
+
+export default App;
