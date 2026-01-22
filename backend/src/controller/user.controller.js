@@ -58,6 +58,10 @@ const login = async (req, res) => {
             username:user.username
         }});
     }
+
+    if(!isPasswordMatch){
+      return res.status(httpStatus.UNAUTHORIZED).json({message:"Invalid credentials"});
+    }
   } catch (error) {
     console.log(error);
     res
