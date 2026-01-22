@@ -3,7 +3,7 @@ import { Mail, Phone } from "lucide-react";
 
 const ContactCTA = () => {
   return (
-    <section className="w-full py-16">
+    <section className="w-full py-4">
       <div className="w-full bg-black rounded-[40px] px-6 py-16 md:py-24 flex flex-col items-center text-center text-white">
         <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 tracking-tight">
           Let’s Get you connected

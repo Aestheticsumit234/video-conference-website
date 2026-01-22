@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 
 const Landing = () => {
   return (
-    <div className="w-full min-h-screen bg-white px-6 md:px-12 lg:px-20">
+    <div className="w-full min-h-screen bg-white px-6 md:px-12 lg:px-12">
       <Hero />
       <ContactCTA />
       <WhyChooseSlink />

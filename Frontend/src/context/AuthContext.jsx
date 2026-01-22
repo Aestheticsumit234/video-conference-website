@@ -31,7 +31,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   const handleLogin = async (email, username, password) => {
-    
     try {
       let request = await Client.post("/login", {
         email,
@@ -43,6 +42,8 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem("token", request.data.token);
       }
     } catch (error) {
+      console.log(error);
+      
       throw error;
     }
   };
@@ -55,11 +56,5 @@ export const AuthProvider = ({ children }) => {
     handleLogin,
   };
 
-  return (
-    <AuthContext.Provider
-      value={data}
-    >
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;
 };

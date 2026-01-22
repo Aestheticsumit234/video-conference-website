@@ -7,6 +7,7 @@ import Register from "./components/Register";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import MainLayout from "./components/MainLayout";
+import VideoMeet from "./pages/VideoMeet";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
 
           <Route path="/auth" element={<Authentication />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/:url" element={<VideoMeet/>} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>

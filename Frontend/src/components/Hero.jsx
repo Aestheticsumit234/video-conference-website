@@ -23,7 +23,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative w-full flex flex-col items-center lg:items-start py-10 md:py-20">
+    <section className="relative w-full flex flex-col items-center lg:items-start py-5 md:py-5">
       <div className="mb-8 self-start lg:self-auto">
         <div className="relative p-[1.5px] overflow-hidden rounded-full flex items-center justify-center">
           <div
@@ -33,7 +33,7 @@ const Hero = () => {
                 "conic-gradient(from 90deg at 50% 50%, #000 0%, #D9D9D9 25%, #000 50%, #D9D9D9 75%, #000 100%)",
             }}
           />
-          <div className="relative px-6 py-2 md:px-10 md:py-3 rounded-full bg-[#f9f9f9] flex items-center justify-center min-w-[180px] md:min-w-[220px]">
+          <div className="relative px-6 py-2 md:px-10 md:py-2 rounded-full bg-[#f9f9f9] flex items-center justify-center min-w-[180px] md:min-w-[220px]">
             <AnimatePresence mode="wait">
               <motion.span
                 key={words[index]}
@@ -56,7 +56,7 @@ const Hero = () => {
             <br />
             Confidence
           </h1>
-          <p className="text-lg md:text-2xl text-gray-600 max-w-lg mx-auto lg:mx-0 mb-10">
+          <p className="text-lg md:text-2xl text-gray-600 max-w-lg mx-auto lg:mx-0 mb-5">
             High-quality video meeting build for speed, security and seamless
             collaboration.
           </p>

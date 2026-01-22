@@ -52,7 +52,7 @@ export default function Register() {
   const [errors, setErrors] = React.useState({});
   const navigate = useNavigate();
 
-  // 3. Destructure handleRegister from Context
+
   const { handleRegister } = useContext(AuthContext);
 
   const validateInputs = () => {
@@ -92,7 +92,7 @@ export default function Register() {
     const data = new FormData(event.currentTarget);
 
     try {
-      // 4. Call handleRegister with form data
+
       const response = await handleRegister(
         data.get("name"),
         data.get("username"),
@@ -100,11 +100,11 @@ export default function Register() {
         data.get("password"),
       );
 
-      // 5. Success Handling
+      
       alert("Registration Successful!");
-      navigate("/auth"); // Redirect to login
+      navigate("/auth"); 
     } catch (error) {
-      // 6. Error Handling
+   
       const serverMessage =
         error.response?.data?.message || "Registration failed";
       setErrors({ server: serverMessage });
@@ -128,7 +128,7 @@ export default function Register() {
             Create Account
           </Typography>
 
-          {/* Show server errors if any */}
+         
           {errors.server && (
             <Typography
               color="error"

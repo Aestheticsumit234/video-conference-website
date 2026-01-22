@@ -3,10 +3,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext'; 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Checkbox from '@mui/material/Checkbox';
 import CssBaseline from '@mui/material/CssBaseline';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Divider from '@mui/material/Divider';
 import FormLabel from '@mui/material/FormLabel';
 import FormControl from '@mui/material/FormControl';
 import { Link, useNavigate } from 'react-router-dom';
@@ -99,10 +96,11 @@ export default function Authentication() {
       setServerError('');
       
       await handleLogin(identifier, identifier, password);
-      
-     
+
       navigate('/'); 
     } catch (error) {
+      console.log(error);
+      
       const message = error.response?.data?.message || "Invalid credentials. Please try again.";
       setServerError(message);
     }
@@ -164,31 +162,16 @@ export default function Authentication() {
                 variant="outlined"
               />
             </FormControl>
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
             
             <Button type="submit" fullWidth variant="contained">
               Sign in
             </Button>
             
-            <Link to="#" style={{ alignSelf: 'center', fontSize: '0.875rem' }}>
+            {/* <Link to="#" style={{ alignSelf: 'center', fontSize: '0.875rem' }}>
               Forgot your password?
-            </Link>
+            </Link> */}
           </Box>
-          <Divider>or</Divider>
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-            <Button fullWidth variant="outlined" onClick={() => alert('Google Login')}>
-              Sign in with Google
-            </Button>
-            <Typography sx={{ textAlign: 'center' }}>
-              Don't have an account?{' '}
-              <Link to="/register" style={{ fontWeight: 'bold' }}>
-                Sign up
-              </Link>
-            </Typography>
-          </Box>
+         
         </Card>
       </SignInContainer>
     </>
